@@ -1,0 +1,10 @@
+$width-for-elemnt: 100%;
+.header-container {
+  width: $width-for-elemnt;
+  mat-toolbar {
+    width: $width-for-elemnt;
+      .title {
+        font-size: 2rem;
+    }
+  }
+}

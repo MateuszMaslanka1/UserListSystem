@@ -11,6 +11,11 @@ export class UserTableComponent implements OnInit {
 
   dataSource = [
     {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20},
+    {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20},
+    {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20},
+    {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20},
+    {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20},
+    {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20},
     {firstName: 'Janusz', lastName: 'Hydrogen', postalCode: '45-567', street: 'fajna', city: 'Katwoice', age: 20}
   ];
   displayedColumns: string[] = ['firstName', 'lastName', 'postalCode', 'street', 'city', 'age', 'actions'];

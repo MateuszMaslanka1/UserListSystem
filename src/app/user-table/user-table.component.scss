@@ -1,4 +1,7 @@
-$center-text: center;
+@mixin set-for-th-td {
+  text-align: center;
+  padding: 10px 2px 0 2px;
+}
 table {
   width: 100%;
 }
@@ -7,10 +10,8 @@ tr {
   flex-wrap: wrap;
   th.mat-header-cell {
     flex: 1;
-    text-align: $center-text;
     font-size: 11px;
-    padding-left: 5px;
-    padding-right: 5px;
+    @include set-for-th-td;
   }
   th.mat-header-cell:last-of-type {
     display: none;
@@ -18,18 +19,18 @@ tr {
   td.mat-cell:last-of-type {
     flex: 1 100%;
     display: flex;
-    justify-content: space-around;
-    align-self: center;
     span {
       font-size: 2em;
+      flex: 1;
     }
   }
   td.mat-cell {
     flex: 1;
-    padding-left: 2px;
-    padding-right: 2px;
-    // width: $th-td-width;
-    text-align: $center-text;
     font-size: 12px;
+    @include set-for-th-td;
   }
+}
+
+tr.mat-footer-row, tr.mat-row {
+    height: 5em;
 }

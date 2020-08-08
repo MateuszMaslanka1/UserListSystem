@@ -1,8 +1,10 @@
-<section [className]="'main-container'">
+<section>
+  <main [className]="'main-container'">
     <div [className]="'add-user-container'">
-      <button>Add User</button>
+      <button mat-raised-button (click)="openDialog()">Add User</button>
     </div>
     <div [className]="'table-container'">
       <app-user-table></app-user-table>
     </div>
+  </main>
 </section>

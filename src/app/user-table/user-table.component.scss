@@ -1,36 +1,61 @@
 @mixin set-for-th-td {
-  text-align: center;
+  flex: 1;
   padding: 10px 2px 0 2px;
 }
 table {
   width: 100%;
 }
 tr {
-  display: flex;
-  flex-wrap: wrap;
   th.mat-header-cell {
-    flex: 1;
-    font-size: 11px;
-    @include set-for-th-td;
-  }
-  th.mat-header-cell:last-of-type {
-    display: none;
-  }
-  td.mat-cell:last-of-type {
-    flex: 1 100%;
-    display: flex;
-    span {
-      font-size: 2em;
-      flex: 1;
-    }
+    text-align: center;
   }
   td.mat-cell {
-    flex: 1;
-    font-size: 12px;
-    @include set-for-th-td;
+    text-align: center;
+  }
+  td.mat-cell:first-of-type {
+    a{
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: green;
+    }
+  }
+  @media screen and (min-width: 1025px){
+    td.mat-cell:last-of-type {
+      text-align: end;
+        button {
+          margin: 0 5px 0 5px;
+        }
+    }
+  }
+  @media screen and (max-width: 1024px){
+    display: flex;
+    flex-wrap: wrap;
+    th.mat-header-cell {
+      @include set-for-th-td;
+      font-size: 11px;
+    }
+    th.mat-header-cell:last-of-type {
+      display: none;
+    }
+    td.mat-cell {
+      @include set-for-th-td;
+      font-size: 12px;
+    }
+    td.mat-cell:last-of-type {
+      flex: 1 100%;
+      display: flex;
+      span {
+        font-size: 2em;
+        flex: 1;
+      }
+    }
   }
 }
-
-tr.mat-footer-row, tr.mat-row {
+@media screen and (max-width: 1024px){
+  tr.mat-footer-row, tr.mat-row {
     height: 5em;
+  }
 }

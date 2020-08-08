@@ -1,0 +1,32 @@
+$shadow-for-box: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0, 0, 0, 0.05);
+@mixin set-title-details {
+  width: 100%;
+  @media screen and (min-width: 769px){
+    width: 80%;
+  }
+  @media screen and (min-width: 1025px){
+    width: 60%;
+  }
+}
+section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .user-list-title {
+    @include set-title-details;
+    padding: .5rem;
+      mat-toolbar {
+       background: lightgreen;
+        box-shadow: $shadow-for-box
+      }
+  }
+  .details-container {
+    @include set-title-details;
+    padding: 0 .5rem .5rem .5rem;
+    mat-list {
+        box-shadow: $shadow-for-box
+      }
+  }
+}

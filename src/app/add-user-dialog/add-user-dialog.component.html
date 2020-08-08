@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Add User</h1>
+<form [formGroup]="addUserForm"  (ngSubmit)="addUser()">
+    <div mat-dialog-content>
+    <p>User First Name</p>
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="first_name">
+    </mat-form-field>
+    <p>User Last Name</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="last_name">
+    </mat-form-field>
+    <p>Street</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Street</mat-label>
+      <input matInput formControlName="street">
+    </mat-form-field>
+    <p>Postal Code</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Postal Code</mat-label>
+      <input matInput formControlName="postal_code">
+    </mat-form-field>
+    <p>City</p>
+    <mat-form-field appearance="outline">
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+    <p>Age</p>
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age">
+    </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="warn" [type]="'button'" (click)="closeDialog()">Close</button>
+      <button mat-raised-button color="primary" [type]="'submit'" [disabled]="!addUserForm.valid" (click)="closeDialog()">Add User</button>
+    </div>
+</form>
+

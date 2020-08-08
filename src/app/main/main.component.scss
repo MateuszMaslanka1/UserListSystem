@@ -1,6 +1,28 @@
-.main-container {
+section {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  .main-container {
+    width: 100%;
+    @media screen and (min-width: 769px){
+      width: 80%;
+    }
+    @media screen and (min-width: 1025px){
+      width: 60%;
+    }
+    padding: .5rem;
+    .add-user-container {
+      width: 100%;
+      padding: .5rem;
+      button {
+        background: lightgreen;
+        width: 10rem;
+        height: 3rem;
+      }
+    }
     .table-container {
+      padding: 0 .5rem .5rem .5rem;
       width: 100%;
     }
+  }
 }

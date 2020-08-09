@@ -1,4 +1,5 @@
 <section>
+    <main [className]="'user-container'">
       <div [className]="'user-list-title'">
         <mat-toolbar>
           <span >User Details</span>
@@ -6,7 +7,9 @@
       </div>
       <div [className]="'details-container'">
         <mat-list>
-          <mat-list-item *ngFor="let item of this.userDetails | keyvalue"> {{item.value}} </mat-list-item>
+          <mat-list-item *ngFor="let item of this.userDetailsCorrectOrder; let i = index">{{this.userDetailsDescriptions[i]}}:
+            {{this.userDetails[item]}}</mat-list-item>
         </mat-list>
       </div>
+    </main>
 </section>

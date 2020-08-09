@@ -8,19 +8,11 @@ table {
 tr {
   th.mat-header-cell {
     text-align: center;
+    //word-break: break-word;
   }
   td.mat-cell {
     text-align: center;
-  }
-  td.mat-cell:first-of-type {
-    a{
-      color: blue;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-    a:hover {
-      color: green;
-    }
+    //word-break: break-word;
   }
   @media screen and (min-width: 1025px){
     td.mat-cell:last-of-type {

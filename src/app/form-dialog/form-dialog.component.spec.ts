@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddUserDialogComponent } from './add-user-dialog.component';
+import { FormDialogComponent } from './form-dialog.component';
 
-describe('AddUserDialogComponent', () => {
-  let component: AddUserDialogComponent;
-  let fixture: ComponentFixture<AddUserDialogComponent>;
+describe('FormDialogComponent', () => {
+  let component: FormDialogComponent;
+  let fixture: ComponentFixture<FormDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddUserDialogComponent ]
+      declarations: [ FormDialogComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddUserDialogComponent);
+    fixture = TestBed.createComponent(FormDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

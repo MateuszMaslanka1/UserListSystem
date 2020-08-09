@@ -12,13 +12,10 @@ import { MainComponent } from './main/main.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LayoutModule } from '@angular/cdk/layout';
-
-
-
-import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { FormDialogComponent } from './form-dialog/form-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +24,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     FooterComponent,
     UserTableComponent,
     MainComponent,
-    AddUserDialogComponent,
     UserDetailsComponent,
+    FormDialogComponent,
   ],
     imports: [
         BrowserModule,
@@ -45,7 +42,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
         ReactiveFormsModule,
         MatListModule
     ],
-  entryComponents: [AddUserDialogComponent],
+  entryComponents: [FormDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

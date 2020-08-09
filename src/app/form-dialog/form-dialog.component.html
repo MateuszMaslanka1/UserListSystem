@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Add User</h1>
-<form [formGroup]="addUserForm"  (ngSubmit)="addUser()">
-    <div mat-dialog-content>
+<form [formGroup]="addUserForm"  (ngSubmit)="switchBetweenAction()">
+  <div mat-dialog-content>
     <p>User First Name</p>
     <mat-form-field appearance="outline">
       <mat-label>First Name</mat-label>
@@ -29,12 +29,12 @@
     <p>Age</p>
     <mat-form-field appearance="outline">
       <mat-label>Age</mat-label>
-      <input matInput formControlName="age">
+      <input matInput formControlName="age" [type]="'number'">
     </mat-form-field>
-    </div>
-    <div mat-dialog-actions>
-      <button mat-raised-button color="warn" [type]="'button'" (click)="closeDialog()">Close</button>
-      <button mat-raised-button color="primary" [type]="'submit'" [disabled]="!addUserForm.valid" (click)="closeDialog()">Add User</button>
-    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" [type]="'button'" (click)="closeDialog()">Close</button>
+    <button mat-raised-button color="primary" *ngIf="this.data.option === 1" [type]="'submit'" [disabled]="!addUserForm.valid" (click)="closeDialog()">Add User</button>
+    <button mat-raised-button color="primary" *ngIf="this.data.option === 2" [type]="'submit'" [disabled]="!addUserForm.valid" (click)="closeDialog()">Edit User</button>
+  </div>
 </form>
-

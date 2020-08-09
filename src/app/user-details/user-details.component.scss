@@ -1,23 +1,23 @@
 $shadow-for-box: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0, 0, 0, 0.05);
 @mixin set-title-details {
   width: 100%;
-  @media screen and (min-width: 769px){
+  @media screen and (min-width: 1439px){
     width: 80%;
   }
-  @media screen and (min-width: 1035px){
+  @media screen and (min-width: 1600px){
     width: 60%;
   }
 }
 section {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .user-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include set-title-details;
     padding: .5rem;
     .user-list-title {
-      @include set-title-details;
+      width: 100%;
       padding: .5rem;
       mat-toolbar {
         background: lightgreen;
@@ -25,10 +25,18 @@ section {
       }
     }
     .details-container {
-      @include set-title-details;
+      width: 100%;
       padding: 0 .5rem .5rem .5rem;
       mat-list {
         box-shadow: $shadow-for-box
+      }
+    }
+    .button-container {
+      width: 100%;
+      padding: 0 .5rem .5rem .5rem;
+      button {
+        width: 10rem;
+        height: 3rem;
       }
     }
   }

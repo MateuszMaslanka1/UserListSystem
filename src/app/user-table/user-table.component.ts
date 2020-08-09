@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {ApiService} from '../api.service';
 import {Router} from '@angular/router';
 import {FormDialogComponent} from '../form-dialog/form-dialog.component';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatPaginator, MatTableDataSource} from '@angular/material';
+import {ConfirmDeleteDialogComponent} from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
   selector: 'app-user-table',
@@ -16,18 +17,29 @@ export class UserTableComponent implements OnInit {
 
   displayedColumns: string[] = ['firstName', 'lastName', 'postalCode', 'street', 'city', 'age', 'actions'];
   hiddenActionButton: boolean;
+  userList: MatTableDataSource<object>;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
 
   ngOnInit() {
     this.observer.observe('(max-width: 1024px)').subscribe(result => {
       this.hiddenActionButton = result.matches;
     });
-    this.apiService.getUserList().subscribe();
+    this.apiService.getUserList().subscribe((el) => {
+      this.userList = new MatTableDataSource(el);
+      this.userList.paginator = this.paginator;
+    });
   }
 
   deleteUser(userId) {
-     this.apiService.deleteUser(userId).subscribe((el) => {
-     this.apiService.getUserList().subscribe();
-   });
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      width: '250px',
+      height: '250px',
+      data: {
+        userIdToDelete: userId
+      }
+    });
   }
 
   goToDetails(userId) {

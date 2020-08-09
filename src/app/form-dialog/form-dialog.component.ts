@@ -19,7 +19,7 @@ export class FormDialogComponent implements OnInit {
     street: new FormControl( '', [Validators.required, Validators.maxLength(100)]),
     postal_code: new FormControl( '', [Validators.required, Validators.maxLength(10)]),
     city: new FormControl( '', [Validators.maxLength(100)]),
-    age: new FormControl( '', [Validators.required, Validators.maxLength(30)])
+    age: new FormControl( '', [Validators.required, Validators.maxLength(3)])
   });
 
   ngOnInit() {

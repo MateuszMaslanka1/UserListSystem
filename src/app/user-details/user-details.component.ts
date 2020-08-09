@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../api.service';
 import {ActivatedRoute} from '@angular/router';
@@ -18,7 +19,7 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
     const getUserId = this.activatedRoute.snapshot.url[1].path;
     this.userDetails = this.apiService.getUserDetailsId(getUserId).subscribe((el) => {
-     this.userDetails = el;
+      this.userDetails = el;
     });
   }
 

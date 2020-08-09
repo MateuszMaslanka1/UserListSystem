@@ -1,22 +1,35 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Observable, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
-
   userList = [];
 
+  constructor(private http: HttpClient) {}
+
+
   getUserList(): Observable<any> {
-    return this.http.get<{users: object[]}>('/api').pipe(
+    return this.http.get<{users: Array<object>}>('/api').pipe(
       map(data => {
-         this.userList = data.users;
-    }));
+        return this.userList = data.users;
+        // this.userList.forEach((el) => {
+        //   Object.entries(el).forEach((el2) => {
+        //     console.log(el2[1]);
+        //   });
+        // });
+      }));
+  }
+
+  getUserDetailsId(userId) {
+    return this.http.get<{user: object}>(`api/user/${userId}`).pipe(
+      map(data => {
+        return data.user;
+      }));
   }
 
   addUser(user) {
@@ -46,12 +59,5 @@ export class ApiService {
 
   deleteUser(userId) {
     return this.http.delete(`api/user/${userId}`);
-  }
-
-  getUserDetailsId(userId) {
-     return this.http.get<{user: object}>(`api/user/${userId}`).pipe(
-      map(data => {
-         return data.user;
-      }));
   }
 }

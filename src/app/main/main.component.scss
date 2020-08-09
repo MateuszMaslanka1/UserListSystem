@@ -9,13 +9,13 @@ section {
   justify-content: center;
   .main-container {
     width: 100%;
-    @media screen and (min-width: 769px){
+    @media screen and (min-width: 1439px){
       width: 80%;
     }
-    @media screen and (min-width: 1035px){
+    @media screen and (min-width: 1600px){
       width: 60%;
     }
-    @include padding-for-small-screen;
+   // @include padding-for-small-screen;
     padding: .5rem;
     .add-user-container {
       width: 100%;
@@ -27,7 +27,7 @@ section {
       }
     }
     .table-container {
-      @include padding-for-small-screen;
+   //   @include padding-for-small-screen;
       padding: 0 .5rem .5rem .5rem;
       width: 100%;
     }

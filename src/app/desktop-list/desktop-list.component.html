@@ -1,0 +1,19 @@
+<ul [className]="'user-list'">
+  <li [className]="'element-name'">
+    <div [className]="'name'" *ngFor="let name of userDetailsDescriptions">
+      {{name}}
+    </div>
+  </li>
+  <li [className]="'element-data'" *ngFor="let data of userList">
+        <div [className]="'element-details'" *ngFor="let item of userDetailsCorrectOrder; let i = index">
+          <div [className]="'element'">{{data[userDetailsCorrectOrder[i]]}}</div>
+        </div>
+        <div [className]="'button-container'">
+          <button mat-raised-button color="primary" (click)="editUserInParent(data)">Edit</button>
+          <button mat-raised-button color="warn"  (click)="deleteUserInParent(data.id)">Delete</button>
+          <button mat-raised-button color="accent"  (click)="goToDetailsInParent(data.id)">Details</button>
+        </div>
+  </li>
+</ul>
+
+

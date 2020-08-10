@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {ApiService} from '../api.service';
 import {Router} from '@angular/router';
 import {FormDialogComponent} from '../form-dialog/form-dialog.component';
-import {MatDialog, MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {ConfirmDeleteDialogComponent} from '../confirm-delete-dialog/confirm-delete-dialog.component';
 
 @Component({
@@ -15,21 +15,15 @@ export class UserTableComponent implements OnInit {
 
   constructor(private observer: BreakpointObserver, public apiService: ApiService, private router: Router, public dialog: MatDialog) { }
 
-  displayedColumns: string[] = ['firstName', 'lastName', 'postalCode', 'street', 'city', 'age', 'actions'];
+  // displayedColumns: string[] = ['firstName', 'lastName', 'postalCode', 'street', 'city', 'age', 'actions'];
   hiddenActionButton: boolean;
-  userList: MatTableDataSource<object>;
-
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
+  userList = [];
 
   ngOnInit() {
     this.observer.observe('(max-width: 1024px)').subscribe(result => {
       this.hiddenActionButton = result.matches;
     });
-    this.apiService.getUserList().subscribe((el) => {
-      this.userList = new MatTableDataSource(el);
-      this.userList.paginator = this.paginator;
-    });
+    this.getDataUser();
   }
 
   deleteUser(userId) {
@@ -39,6 +33,9 @@ export class UserTableComponent implements OnInit {
       data: {
         userIdToDelete: userId
       }
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.getDataUser();
     });
   }
 
@@ -53,6 +50,16 @@ export class UserTableComponent implements OnInit {
         option: 2,
         userData: user
       }
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.getDataUser();
+    });
+  }
+
+  getDataUser() {
+    this.apiService.getUserList().subscribe((el) => {
+      this.userList = el;
+      console.log(this.userList);
     });
   }
 }

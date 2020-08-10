@@ -17,6 +17,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { FormDialogComponent } from './form-dialog/form-dialog.component';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
+import { MobileListComponent } from './mobile-list/mobile-list.component';
+import { DesktopListComponent } from './desktop-list/desktop-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-de
     UserDetailsComponent,
     FormDialogComponent,
     ConfirmDeleteDialogComponent,
+    MobileListComponent,
+    DesktopListComponent,
   ],
     imports: [
         BrowserModule,

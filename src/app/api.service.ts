@@ -12,7 +12,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-
   getUserList(): Observable<any> {
     return this.http.get<{users: Array<object>}>('/api').pipe(
       map(data => {

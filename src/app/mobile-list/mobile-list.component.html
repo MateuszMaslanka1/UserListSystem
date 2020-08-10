@@ -1,0 +1,16 @@
+<ul [className]="'userList'">
+  <li [className]="'elementList'" *ngFor="let data of userList">
+    <div [className]="'currentElement'" *ngFor="let nameData of userDetailsDescriptions; let i = index">
+      <div [className]="'element-container'">
+        <div [className]="'title'">{{nameData}}:</div>
+        <div [className]="'element'">{{data[userDetailsCorrectOrder[i]]}}</div>
+      </div>
+    </div>
+    <div [className]="'button-container'">
+      <span class="material-icons" (click)="editUserInParent(data)">edit</span>
+      <span class="material-icons" (click)="deleteUserInParent(data.id)">delete</span>
+      <span class="material-icons" (click)="goToDetailsInParent(data.id)">person</span>
+    </div>
+  </li>
+</ul>
+

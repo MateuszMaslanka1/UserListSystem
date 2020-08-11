@@ -1,7 +1,13 @@
 .user-list {
   list-style-type: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0, 0, 0, 0.05);
   .element-name {
     display: flex;
+    border-bottom: 1px solid lightgray;
+    padding: .5rem;
       .name {
         font-size: 1.2em;
         flex: 1;
@@ -11,17 +17,19 @@
       }
   }
   .element-data {
-    border: 2px solid  #3f51b5;
-    border-radius: 5px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    border-bottom: 1px solid lightgray;
     display: flex;
     align-items: center;
       .element-details {
          flex: 1;
           .element {
             padding: .5rem;
-            word-break: break-word;
+              p {
+                width: 100px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
           }
         }
       .button-container {

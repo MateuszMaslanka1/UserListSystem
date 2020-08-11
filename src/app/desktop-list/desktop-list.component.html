@@ -6,7 +6,9 @@
   </li>
   <li [className]="'element-data'" *ngFor="let data of userList">
         <div [className]="'element-details'" *ngFor="let item of userDetailsCorrectOrder; let i = index">
-          <div [className]="'element'">{{data[userDetailsCorrectOrder[i]]}}</div>
+          <div [className]="'element'">
+              <p>{{data[userDetailsCorrectOrder[i]]}}</p>
+          </div>
         </div>
         <div [className]="'button-container'">
           <button mat-raised-button color="primary" (click)="editUserInParent(data)">Edit</button>

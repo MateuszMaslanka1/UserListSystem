@@ -7,9 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserTableComponent } from './user-table/user-table.component';
-import {MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule, MatPaginatorModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
 import { MainComponent } from './main/main.component';
-import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LayoutModule } from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
@@ -38,7 +37,6 @@ import { DesktopListComponent } from './desktop-list/desktop-list.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         MatToolbarModule,
-        MatTableModule,
         MatButtonModule,
         MatDialogModule,
         MatFormFieldModule,
@@ -46,8 +44,6 @@ import { DesktopListComponent } from './desktop-list/desktop-list.component';
         LayoutModule,
         HttpClientModule,
         ReactiveFormsModule,
-        MatListModule,
-        MatPaginatorModule
     ],
   entryComponents: [FormDialogComponent, ConfirmDeleteDialogComponent],
   providers: [],

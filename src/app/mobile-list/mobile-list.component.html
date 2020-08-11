@@ -3,7 +3,7 @@
     <div [className]="'currentElement'" *ngFor="let nameData of userDetailsDescriptions; let i = index">
       <div [className]="'element-container'">
         <div [className]="'title'">{{nameData}}:</div>
-        <div [className]="'element'">{{data[userDetailsCorrectOrder[i]]}}</div>
+        <div [className]="'element'"><p>{{data[userDetailsCorrectOrder[i]]}}</p></div>
       </div>
     </div>
     <div [className]="'button-container'">

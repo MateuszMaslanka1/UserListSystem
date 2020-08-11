@@ -16,7 +16,6 @@ export class DesktopListComponent implements OnInit {
   userDetailsDescriptions = ['First Name', 'Last Name', 'Postal Code', 'Street', 'City', 'Age', 'Actions'];
 
   ngOnInit() {
-    console.log(this.userList);
   }
 
   deleteUserInParent(userId): void {

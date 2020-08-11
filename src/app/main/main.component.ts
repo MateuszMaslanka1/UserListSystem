@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {FormDialogComponent} from '../form-dialog/form-dialog.component';
-import {UserTableComponent} from '../user-table/user-table.component';
 
 @Component({
   selector: 'app-main',
@@ -12,8 +11,6 @@ export class MainComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  @ViewChild('child', {static: false}) child: UserTableComponent;
-
   ngOnInit() {
   }
 
@@ -23,9 +20,6 @@ export class MainComponent implements OnInit {
       data: {
         option: 1
       }
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      this.child.getDataUser();
     });
   }
 

@@ -15,7 +15,6 @@ export class UserTableComponent implements OnInit {
 
   constructor(private observer: BreakpointObserver, public apiService: ApiService, private router: Router, public dialog: MatDialog) { }
 
-  // displayedColumns: string[] = ['firstName', 'lastName', 'postalCode', 'street', 'city', 'age', 'actions'];
   hiddenActionButton: boolean;
   userList = [];
 
@@ -23,7 +22,7 @@ export class UserTableComponent implements OnInit {
     this.observer.observe('(max-width: 1024px)').subscribe(result => {
       this.hiddenActionButton = result.matches;
     });
-    this.getDataUser();
+    this.apiService.getUserList().subscribe();
   }
 
   deleteUser(userId) {
@@ -33,9 +32,6 @@ export class UserTableComponent implements OnInit {
       data: {
         userIdToDelete: userId
       }
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      this.getDataUser();
     });
   }
 
@@ -50,16 +46,6 @@ export class UserTableComponent implements OnInit {
         option: 2,
         userData: user
       }
-    });
-    dialogRef.afterClosed().subscribe(() => {
-      this.getDataUser();
-    });
-  }
-
-  getDataUser() {
-    this.apiService.getUserList().subscribe((el) => {
-      this.userList = el;
-      console.log(this.userList);
     });
   }
 }

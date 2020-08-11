@@ -16,11 +16,6 @@ export class ApiService {
     return this.http.get<{users: Array<object>}>('/api').pipe(
       map(data => {
         return this.userList = data.users;
-        // this.userList.forEach((el) => {
-        //   Object.entries(el).forEach((el2) => {
-        //     console.log(el2[1]);
-        //   });
-        // });
       }));
   }
 

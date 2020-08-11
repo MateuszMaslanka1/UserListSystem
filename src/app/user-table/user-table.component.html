@@ -1,9 +1,9 @@
-<app-mobile-list *ngIf='this.hiddenActionButton' [userList]="this.userList"
+<app-mobile-list *ngIf='this.hiddenActionButton' [userList]="this.apiService.userList"
 (deleteUser)="deleteUser($event)"
 (editUser)="editUser($event)"
 (goToDetails)="goToDetails($event)">
 </app-mobile-list>
-<app-desktop-list *ngIf='!this.hiddenActionButton' [userList]="this.userList"
+<app-desktop-list *ngIf='!this.hiddenActionButton' [userList]="this.apiService.userList"
 (deleteUser)="deleteUser($event)"
 (editUser)="editUser($event)"
 (goToDetails)="goToDetails($event)">

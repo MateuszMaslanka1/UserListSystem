@@ -6,10 +6,12 @@
         </mat-toolbar>
       </div>
       <div [className]="'details-container'">
-        <mat-list>
-          <mat-list-item *ngFor="let item of this.userDetailsCorrectOrder; let i = index">{{this.userDetailsDescriptions[i]}}:
-            {{this.userDetails[item]}}</mat-list-item>
-        </mat-list>
+        <ul [className]="'list-details'">
+          <li [className]="'details'" *ngFor="let item of this.userDetailsCorrectOrder; let i = index">
+              {{this.userDetailsDescriptions[i]}}:
+              {{this.userDetails[item]}}
+          </li>
+        </ul>
       </div>
       <div [className]="'button-container'">
         <button mat-raised-button color="primary" [routerLink]="'/'">Back</button>

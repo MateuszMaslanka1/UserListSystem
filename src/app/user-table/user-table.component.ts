@@ -30,6 +30,7 @@ export class UserTableComponent implements OnInit {
 
   addUser() {
     const dialogRef = this.dialog.open(FormDialogComponent, {
+      disableClose: true,
       width: '350px',
       data: {
         option: 1
@@ -45,6 +46,7 @@ export class UserTableComponent implements OnInit {
 
   deleteUser(user) {
     const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      disableClose: true,
       width: '250px',
       height: '250px',
       data: {
@@ -67,6 +69,7 @@ export class UserTableComponent implements OnInit {
 
   editUser(user): void {
     const dialogRef = this.dialog.open(FormDialogComponent, {
+      disableClose: true,
       width: '350px',
       data: {
         option: 2,

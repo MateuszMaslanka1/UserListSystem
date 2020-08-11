@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ApiService} from '../core/services/api.service';
+import {ApiService} from '../../core/services/api.service';
 
 @Component({
   selector: 'app-confirm-delete-dialog',
@@ -16,7 +16,7 @@ export class ConfirmDeleteDialogComponent implements OnInit {
   }
 
   closeDialog() {
-    this.dialogRef.close({});
+    this.dialogRef.close({deletedStatus: 0});
   }
 
   deleteUser() {

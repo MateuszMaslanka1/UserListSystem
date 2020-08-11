@@ -8,16 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
-import { MainComponent } from './main/main.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LayoutModule } from '@angular/cdk/layout';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { FormDialogComponent } from './form-dialog/form-dialog.component';
-import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
-import { MobileListComponent } from './mobile-list/mobile-list.component';
+import { ConfirmDeleteDialogComponent } from './user-table/confirm-delete-dialog/confirm-delete-dialog.component';
+import { MobileListComponent } from './user-table/mobile-list/mobile-list.component';
 import { DesktopListComponent } from './user-table/desktop-list/desktop-list.component';
+import {FormDialogComponent} from './user-table/form-dialog/form-dialog.component';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { DesktopListComponent } from './user-table/desktop-list/desktop-list.com
     HeaderComponent,
     FooterComponent,
     UserTableComponent,
-    MainComponent,
     UserDetailsComponent,
     FormDialogComponent,
     ConfirmDeleteDialogComponent,

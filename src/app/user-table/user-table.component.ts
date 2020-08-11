@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {ApiService} from '../core/services/api.service';
 import {Router} from '@angular/router';
-import {FormDialogComponent} from '../form-dialog/form-dialog.component';
 import {MatDialog} from '@angular/material';
-import {ConfirmDeleteDialogComponent} from '../confirm-delete-dialog/confirm-delete-dialog.component';
 import {SendDataToDetailsService} from '../core/services/send-data-to-details.service';
+import {ConfirmDeleteDialogComponent} from './confirm-delete-dialog/confirm-delete-dialog.component';
+import {FormDialogComponent} from './form-dialog/form-dialog.component';
 
 @Component({
   selector: 'app-user-table',

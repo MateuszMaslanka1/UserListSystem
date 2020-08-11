@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ApiService} from '../core/services/api.service';
+import {ApiService} from '../../core/services/api.service';
 
 @Component({
   selector: 'app-form-dialog',
@@ -34,8 +34,8 @@ export class FormDialogComponent implements OnInit {
     }
   }
 
-  closeDialog(): void {
-    this.dialogRef.close({});
+  closeDialog() {
+    this.dialogRef.close({addStatus: 0, updatedStatus: 0});
   }
 
   switchBetweenAction() {

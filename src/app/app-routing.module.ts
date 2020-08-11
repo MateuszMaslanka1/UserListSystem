@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {MainComponent} from './main/main.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {UserDetailsComponent} from './user-details/user-details.component';
+import {UserTableComponent} from './user-table/user-table.component';
 
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
+  {path: '', component: UserTableComponent},
   {path: 'details/:id', component: UserDetailsComponent},
 ];
 

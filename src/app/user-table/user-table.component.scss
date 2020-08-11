@@ -1,8 +1,28 @@
-.add-user-container {
-  width: 100%;
-  button {
-    background: lightgreen;
-    width: 10rem;
-    height: 3rem;
+$width-full-side: 100%;
+section {
+  width: $width-full-side;
+  display: flex;
+  justify-content: center;
+  .main-container {
+    width: $width-full-side;
+    @media screen and (min-width: 1440px){
+      width: 80%;
+    }
+    @media screen and (min-width: 1600px){
+      width: 60%;
+    }
+    padding: .5rem;
+    .table-container {
+      padding: 0 .5rem .5rem .5rem;
+      width: $width-full-side;
+      .add-user-container {
+        width: 100%;
+        button {
+          background: lightgreen;
+          width: 10rem;
+          height: 3rem;
+        }
+      }
+    }
   }
 }

@@ -20,12 +20,12 @@ $break-word: break-word;
           .element {
             flex: 1;
             word-break: $break-word;
-              p {
-                width: 110px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-              }
+            p {
+              width: 110px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
           }
         }
       }

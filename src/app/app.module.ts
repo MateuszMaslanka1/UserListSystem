@@ -17,7 +17,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { FormDialogComponent } from './form-dialog/form-dialog.component';
 import { ConfirmDeleteDialogComponent } from './confirm-delete-dialog/confirm-delete-dialog.component';
 import { MobileListComponent } from './mobile-list/mobile-list.component';
-import { DesktopListComponent } from './desktop-list/desktop-list.component';
+import { DesktopListComponent } from './user-table/desktop-list/desktop-list.component';
+
 
 @NgModule({
   declarations: [

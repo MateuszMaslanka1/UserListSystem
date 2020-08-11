@@ -7,9 +7,9 @@
       </div>
       <div [className]="'details-container'">
         <ul [className]="'list-details'">
-          <li [className]="'details'" *ngFor="let item of this.userDetailsCorrectOrder; let i = index">
+          <li [className]="'details'" *ngFor="let item of userDetailsDescriptions; let i = index">
               {{this.userDetailsDescriptions[i]}}:
-              {{this.userDetails[item]}}
+              {{this.userDetails[userDetailsCorrectOrder[i]]}}
           </li>
         </ul>
       </div>

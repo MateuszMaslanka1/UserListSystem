@@ -1,27 +1,25 @@
-.userList {
-  width: 100%;
+$padding-for-elements: .5rem;
+$break-word: break-word;
+.user-list {
   display: block;
   @media screen and (max-width: 1024px){
-    .elementList {
-      width: 100%;
+    .element-list {
       box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0, 0, 0, 0.05);
       border-radius: 5px;
       list-style-type: none;
       margin-top: 1rem;
       margin-bottom: 1rem;
-      .currentElement {
-        width: 100%;
+      .current-element {
         .element-container{
-          width: 100%;
-          padding: .5rem;
+          padding: $padding-for-elements;
           display: flex;
           .title {
             flex: 1;
-            word-break: break-word;
+            word-break: $break-word;
           }
           .element {
             flex: 1;
-            word-break: break-word;
+            word-break: $break-word;
               p {
                 width: 110px;
                 white-space: nowrap;
@@ -35,7 +33,7 @@
         display: flex;
         justify-content: space-between;
         span {
-          padding: .5rem;
+          padding: $padding-for-elements;
           font-size:  2rem;
         }
       }

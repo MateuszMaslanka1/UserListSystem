@@ -1,6 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog} from '@angular/material';
-import {FormDialogComponent} from '../form-dialog/form-dialog.component';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -9,18 +7,9 @@ import {FormDialogComponent} from '../form-dialog/form-dialog.component';
 })
 export class MainComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(FormDialogComponent, {
-      width: '350px',
-      data: {
-        option: 1
-      }
-    });
   }
 
 }

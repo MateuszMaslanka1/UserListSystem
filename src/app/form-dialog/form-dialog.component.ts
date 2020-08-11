@@ -1,8 +1,7 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ApiService} from '../api.service';
-import {switchMap} from 'rxjs/operators';
+import {ApiService} from '../core/services/api.service';
 
 @Component({
   selector: 'app-form-dialog',
@@ -36,7 +35,7 @@ export class FormDialogComponent implements OnInit {
   }
 
   closeDialog(): void {
-    this.dialogRef.close();
+    this.dialogRef.close({});
   }
 
   switchBetweenAction() {
@@ -45,11 +44,15 @@ export class FormDialogComponent implements OnInit {
   }
 
   addUser(getUserData) {
-    this.apiService.addUser(getUserData).pipe(switchMap(() => this.apiService.getUserList())).subscribe();
+    this.apiService.addUser(getUserData).subscribe((el: { status: number, id: number }) => {
+      return this.dialogRef.close({addStatus: el.status, userId: el.id, fullUser: getUserData});
+    });
   }
 
   editUser(getUserData) {
-    this.apiService.editUser(getUserData, this.data.userData.id).pipe(switchMap(() => this.apiService.getUserList())).subscribe();
+    this.apiService.editUser(getUserData, this.data.userData.id).subscribe((el: { status: number }) => {
+      return this.dialogRef.close({updatedStatus: el.status, updatedUser: getUserData});
+    });
   }
 
 }

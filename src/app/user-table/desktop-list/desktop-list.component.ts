@@ -1,20 +1,19 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-mobile-list',
-  templateUrl: './mobile-list.component.html',
-  styleUrls: ['./mobile-list.component.scss']
+  selector: 'app-desktop-list',
+  templateUrl: './desktop-list.component.html',
+  styleUrls: ['./desktop-list.component.scss']
 })
-export class MobileListComponent implements OnInit {
+export class DesktopListComponent implements OnInit {
 
   constructor() { }
-
-  userDetailsCorrectOrder = ['first_name', 'last_name', 'postal_code', 'street', 'city', 'age'];
-  userDetailsDescriptions = ['First Name', 'Last Name', 'Postal Code', 'Street', 'City', 'Age'];
   @Input('userList') userList: Array<object>;
   @Output() deleteUser = new EventEmitter<string>();
   @Output() editUser = new EventEmitter<string>();
   @Output() goToDetails = new EventEmitter<string>();
+  userDetailsCorrectOrder = ['first_name', 'last_name', 'postal_code', 'street', 'city', 'age'];
+  userDetailsDescriptions = ['First Name', 'Last Name', 'Postal Code', 'Street', 'City', 'Age', 'Actions'];
 
   ngOnInit() {
   }
@@ -27,7 +26,8 @@ export class MobileListComponent implements OnInit {
     this.editUser.next(userId);
   }
 
-  goToDetailsInParent(user): void {
-    this.goToDetails.next(user);
+  goToDetailsInParent(userId): void {
+    this.goToDetails.next(userId);
   }
+
 }

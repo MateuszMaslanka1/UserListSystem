@@ -1,6 +1,6 @@
-<ul [className]="'userList'">
-  <li [className]="'elementList'" *ngFor="let data of userList">
-    <div [className]="'currentElement'" *ngFor="let nameData of userDetailsDescriptions; let i = index">
+<ul [className]="'user-list'">
+  <li [className]="'element-list'" *ngFor="let data of userList">
+    <div [className]="'current-element'" *ngFor="let nameData of userDetailsDescriptions; let i = index">
       <div [className]="'element-container'">
         <div [className]="'title'">{{nameData}}:</div>
         <div [className]="'element'"><p>{{data[userDetailsCorrectOrder[i]]}}</p></div>
@@ -8,8 +8,8 @@
     </div>
     <div [className]="'button-container'">
       <span class="material-icons" (click)="editUserInParent(data)">edit</span>
-      <span class="material-icons" (click)="deleteUserInParent(data.id)">delete</span>
-      <span class="material-icons" (click)="goToDetailsInParent(data.id)">person</span>
+      <span class="material-icons" (click)="deleteUserInParent(data)">delete</span>
+      <span class="material-icons" (click)="goToDetailsInParent(data)">person</span>
     </div>
   </li>
 </ul>

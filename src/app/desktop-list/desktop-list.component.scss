@@ -1,3 +1,5 @@
+$padding-for-elements: .5rem;
+$border-elements: 1px solid lightgray;
 .user-list {
   list-style-type: none;
   margin-top: 1rem;
@@ -6,8 +8,8 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0, 0, 0, 0.05);
   .element-name {
     display: flex;
-    border-bottom: 1px solid lightgray;
-    padding: .5rem;
+    border-bottom: $border-elements;
+    padding: $padding-for-elements;
       .name {
         font-size: 1.2em;
         flex: 1;
@@ -17,13 +19,13 @@
       }
   }
   .element-data {
-    border-bottom: 1px solid lightgray;
+    border-bottom: $border-elements;
     display: flex;
     align-items: center;
       .element-details {
          flex: 1;
           .element {
-            padding: .5rem;
+            padding: $padding-for-elements;
               p {
                 width: 100px;
                 white-space: nowrap;
@@ -33,7 +35,7 @@
           }
         }
       .button-container {
-        padding: .5rem;
+        padding: $padding-for-elements;
         flex: 2;
         display: flex;
         justify-content: space-between;

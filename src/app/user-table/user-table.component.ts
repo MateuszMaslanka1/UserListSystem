@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
-import {ApiService} from '../api.service';
+import {ApiService} from '../core/services/api.service';
 import {Router} from '@angular/router';
 import {FormDialogComponent} from '../form-dialog/form-dialog.component';
 import {MatDialog} from '@angular/material';
 import {ConfirmDeleteDialogComponent} from '../confirm-delete-dialog/confirm-delete-dialog.component';
+import {SendDataToDetailsService} from '../core/services/send-data-to-details.service';
 
 @Component({
   selector: 'app-user-table',
@@ -13,32 +14,55 @@ import {ConfirmDeleteDialogComponent} from '../confirm-delete-dialog/confirm-del
 })
 export class UserTableComponent implements OnInit {
 
-  constructor(private observer: BreakpointObserver, public apiService: ApiService, private router: Router, public dialog: MatDialog) { }
+  constructor(private observer: BreakpointObserver, public apiService: ApiService, private router: Router,
+              public dialog: MatDialog, private sendDataToDetailsService: SendDataToDetailsService) { }
 
   hiddenActionButton: boolean;
-  // userList = [];
+  userList = [];
 
   ngOnInit() {
     this.observer.observe('(max-width: 1024px)').subscribe(result => {
       this.hiddenActionButton = result.matches;
     });
-    if (this.apiService.userList.length === 0) {
-      this.apiService.getUserList().subscribe();
-    }
+    this.apiService.getUserList().subscribe(el => this.userList = el);
   }
 
-  deleteUser(userId) {
-    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
-      width: '250px',
-      height: '250px',
+
+  addUser() {
+    const dialogRef = this.dialog.open(FormDialogComponent, {
+      width: '350px',
       data: {
-        userIdToDelete: userId
+        option: 1
+      }
+    });
+    dialogRef.afterClosed().subscribe(response => {
+      if (response.addStatus === 1) {
+        response.fullUser.id = response.userId;
+        this.userList.push(response.fullUser);
       }
     });
   }
 
-  goToDetails(userId) {
-    this.router.navigate(['/details', userId]);
+  deleteUser(user) {
+    const dialogRef = this.dialog.open(ConfirmDeleteDialogComponent, {
+      width: '250px',
+      height: '250px',
+      data: {
+        userIdToDelete: user.id
+      }
+    });
+    dialogRef.afterClosed().subscribe(response => {
+      if (response.deletedStatus === 1) {
+        this.userList = this.userList.filter((el) => {
+            return user !== el;
+        });
+      }
+    });
+  }
+
+  goToDetails(user) {
+    this.sendDataToDetailsService.setUserData(user);
+    this.router.navigate(['/details', user.id]);
   }
 
   editUser(user): void {
@@ -47,6 +71,15 @@ export class UserTableComponent implements OnInit {
       data: {
         option: 2,
         userData: user
+      }
+    });
+    dialogRef.afterClosed().subscribe(response => {
+      if (response.updatedStatus === 1) {
+        this.userList = this.userList.filter((el: { id: number }) => {
+          return user.id !== el.id;
+        });
+        response.updatedUser.id = user.id;
+        this.userList.push(response.updatedUser);
       }
     });
   }

@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ApiService} from '../api.service';
-import {switchMap} from 'rxjs/operators';
+import {ApiService} from '../core/services/api.service';
 
 @Component({
   selector: 'app-confirm-delete-dialog',
@@ -11,17 +10,18 @@ import {switchMap} from 'rxjs/operators';
 export class ConfirmDeleteDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialogComponent>,
-    public apiService: ApiService, @Inject(MAT_DIALOG_DATA) public data) { }
+              private apiService: ApiService, @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
   }
 
   closeDialog() {
-    this.dialogRef.close();
+    this.dialogRef.close({});
   }
 
   deleteUser() {
-    this.apiService.deleteUser(this.data.userIdToDelete).pipe(switchMap(() => this.apiService.getUserList())).subscribe();
-    this.dialogRef.close();
+    this.apiService.deleteUser(this.data.userIdToDelete).subscribe((el: { status: number }) => {
+      return this.dialogRef.close({deletedStatus: el.status});
+    });
   }
 }

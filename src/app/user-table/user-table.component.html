@@ -1,9 +1,12 @@
-<app-mobile-list *ngIf='this.hiddenActionButton' [userList]="this.apiService.userList"
+<div [className]="'add-user-container'">
+  <button mat-raised-button (click)="addUser()">Add User</button>
+</div>
+<app-mobile-list *ngIf='this.hiddenActionButton' [userList]="this.userList"
 (deleteUser)="deleteUser($event)"
 (editUser)="editUser($event)"
 (goToDetails)="goToDetails($event)">
 </app-mobile-list>
-<app-desktop-list *ngIf='!this.hiddenActionButton' [userList]="this.apiService.userList"
+<app-desktop-list *ngIf='!this.hiddenActionButton' [userList]="this.userList"
 (deleteUser)="deleteUser($event)"
 (editUser)="editUser($event)"
 (goToDetails)="goToDetails($event)">

@@ -3,15 +3,14 @@ $padding-for-element: .5rem;
 $padding-for-conatainer: .5rem;
 @mixin set-title-details {
   width: 100%;
-  @media screen and (min-width: 1439px){
-    width: 80%;
+  @media screen and (min-width: 1440px){
+    width: 60%;
   }
   @media screen and (min-width: 1600px){
     width: 60%;
   }
 }
 section {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +18,6 @@ section {
     @include set-title-details;
     padding: $padding-for-element;
     .user-list-title {
-      width: 100%;
       padding: $padding-for-element;
       mat-toolbar {
         background: lightgreen;
@@ -27,7 +25,6 @@ section {
       }
     }
     .details-container {
-      width: 100%;
       padding: $padding-for-conatainer;
       .list-details {
         box-shadow: $shadow-for-box;
@@ -35,13 +32,11 @@ section {
           .details {
             padding: $padding-for-element;
             list-style-type: none;
-            width: 100%;
             word-break: break-all;
           }
       }
     }
     .button-container {
-      width: 100%;
       padding: $padding-for-conatainer;
       button {
         width: 10rem;

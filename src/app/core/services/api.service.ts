@@ -7,15 +7,12 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
-  userList = [];
-
   constructor(private http: HttpClient) {}
 
   getUserList(): Observable<any> {
     return this.http.get<{users: Array<object>}>('/api').pipe(
       map(data => {
-        return this.userList = data.users;
+        return data.users;
       }));
   }
 

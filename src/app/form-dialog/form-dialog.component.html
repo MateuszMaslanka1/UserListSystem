@@ -34,7 +34,7 @@
   </div>
   <div mat-dialog-actions>
     <button mat-raised-button color="primary" [type]="'button'" (click)="closeDialog()">Close</button>
-    <button mat-raised-button color="primary" *ngIf="this.data.option === 1" [type]="'submit'" [disabled]="!addUserForm.valid" (click)="closeDialog()">Add User</button>
-    <button mat-raised-button color="primary" *ngIf="this.data.option === 2" [type]="'submit'" [disabled]="!addUserForm.valid" (click)="closeDialog()">Edit User</button>
+    <button mat-raised-button color="primary" *ngIf="this.data.option === 1" [type]="'submit'" [disabled]="!addUserForm.valid">Add User</button>
+    <button mat-raised-button color="primary" *ngIf="this.data.option === 2" [type]="'submit'" [disabled]="!addUserForm.valid">Edit User</button>
   </div>
 </form>

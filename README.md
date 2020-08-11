@@ -4,7 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Start Application
+
+1. In the console, go to the project folder `\UserListSystem`
+2. Add package typing in console `npm i`
+3. Run Application typing in console `npm start` or `ng serve --proxy-config proxy.conf.json`
 
 ## Code scaffolding
 

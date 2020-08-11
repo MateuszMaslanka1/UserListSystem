@@ -16,13 +16,15 @@ export class UserTableComponent implements OnInit {
   constructor(private observer: BreakpointObserver, public apiService: ApiService, private router: Router, public dialog: MatDialog) { }
 
   hiddenActionButton: boolean;
-  userList = [];
+  // userList = [];
 
   ngOnInit() {
     this.observer.observe('(max-width: 1024px)').subscribe(result => {
       this.hiddenActionButton = result.matches;
     });
-    this.apiService.getUserList().subscribe();
+    if (this.apiService.userList.length === 0) {
+      this.apiService.getUserList().subscribe();
+    }
   }
 
   deleteUser(userId) {

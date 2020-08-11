@@ -10,7 +10,8 @@ import {switchMap} from 'rxjs/operators';
 })
 export class ConfirmDeleteDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialogComponent>, public apiService: ApiService, @Inject(MAT_DIALOG_DATA) public data) { }
+  constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialogComponent>,
+    public apiService: ApiService, @Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit() {
   }
